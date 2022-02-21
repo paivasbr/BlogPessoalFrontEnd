@@ -14,13 +14,13 @@ function Footer() {
                             <Typography variant="h5" align="center" gutterBottom style={{ color: "white" }}>Siga-nos nas redes sociais </Typography>
                         </Box>
                         <Box display="flex" alignItems="center" justifyContent="center">
-                            <a href="https://www.instagram.com/paivasbr" target="_blank">
+                            <a href="https://www.instagram.com/paivasbr">
                                 <InstagramIcon style={{ fontSize: 60, color: "white" }} />
                             </a>
-                            <a href="https://www.linkedin.com/in/paivasbr" target="_blank">
+                            <a href="https://www.linkedin.com/in/paivasbr" >
                                 <LinkedInIcon style={{ fontSize: 60, color: "white" }} />
                             </a>
-                            <a href="https://github.com/paivasbr" target="_blank">
+                            <a href="https://github.com/paivasbr">
                                 <GitHubIcon style={{ fontSize: 50, color: "white" }} />
                             </a>
                         </Box>
@@ -30,7 +30,7 @@ function Footer() {
                             <Typography variant="subtitle2" align="center" gutterBottom style={{ color: "white" }} >© 2020 Copyright:</Typography>
                         </Box>
                         <Box>
-                            <a target="_blank" href="https://brazil.generation.org/">
+                            <a href="https://brazil.generation.org/">
                                 <Typography variant="subtitle2" gutterBottom style={{ color: "white" }} align="center">brasil.generation.org</Typography>
                             </a>
                         </Box>

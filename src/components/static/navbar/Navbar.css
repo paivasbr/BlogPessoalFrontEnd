@@ -3,6 +3,10 @@
     color:white;
 }
 
+.navbar{
+    background-color: #00352c !important;
+}
+
 .text-decorator-none{
     text-decoration: none;
 }

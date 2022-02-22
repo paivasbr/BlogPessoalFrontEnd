@@ -6,7 +6,7 @@ import './Navbar.css'
 function Navbar() {
     return (
         <>
-            <AppBar position="relative" style={{ backgroundColor: "#00352c" }}>
+            <AppBar position="relative" className="navbar">
                 <Toolbar variant="dense">
                     <Box className='cursor' >
                         <Typography variant="h5" color="inherit">

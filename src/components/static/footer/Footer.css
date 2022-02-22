@@ -1,3 +1,32 @@
+.box1{
+    background-color: #004d40;
+    height: 85px;
+}
+
+.box2{
+    background-color: #00352c;
+    height: 60px;
+}
+
+.rede1{
+    font-size: 29.8px !important; 
+    color: white; 
+}
+
+.rede2{
+    font-size: 25px !important; 
+    color: white; 
+}
+
+.texto1{
+    color: white;
+    font-size: 18px;
+}
+
+.texto2{
+    color: white;
+}
+
 .text-decorator-none{
     text-decoration: none;
 }

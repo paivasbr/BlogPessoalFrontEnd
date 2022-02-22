@@ -6,7 +6,7 @@ import './Navbar.css'
 function Navbar() {
     return (
         <>
-            <AppBar position="relative" style={{ backgroundColor: "#357a38" }}>
+            <AppBar position="relative" style={{ backgroundColor: "#00352c" }}>
                 <Toolbar variant="dense">
                     <Box style={{ cursor: "pointer" }} >
                         <Typography variant="h5" color="inherit">
@@ -17,28 +17,28 @@ function Navbar() {
                     <Box display="flex" justifyContent="start">
                         <Box mx={1} style={{ cursor: "pointer" }}>
                             <Typography variant="h6" color="inherit">
-                                home
+                                Home
                             </Typography>
                         </Box>
                         <Box mx={1} style={{ cursor: "pointer" }}>
                             <Typography variant="h6" color="inherit">
-                                postagens
+                                Postagens
                             </Typography>
                         </Box>
                         <Box mx={1} style={{ cursor: "pointer" }}>
                             <Typography variant="h6" color="inherit">
-                                temas
+                                Temas
                             </Typography>
                         </Box>
                         <Box mx={1} style={{ cursor: "pointer" }}>
                             <Typography variant="h6" color="inherit">
-                                cadastrar tema
+                                Cadastrar tema
                             </Typography>
                         </Box>
                         <Link to='/login' className='text-decorator-none'>
-                            <Box mx={1} style={{ cursor: "pointer" }}>
+                            <Box mx={1} style={{ cursor: "pointer", color: 'white' }}>
                                 <Typography variant="h6" color="inherit">
-                                    logout
+                                    Logout
                                 </Typography>
                             </Box>
                         </Link>

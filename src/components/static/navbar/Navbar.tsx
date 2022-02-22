@@ -1,11 +1,12 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Box,} from '@material-ui/core';
-
+import { Link } from 'react-router-dom';
+import './Navbar.css'
 
 function Navbar() {
     return (
         <>
-            <AppBar position="static">
+            <AppBar position="relative" style={{ backgroundColor: "#357a38" }}>
                 <Toolbar variant="dense">
                     <Box style={{ cursor: "pointer" }} >
                         <Typography variant="h5" color="inherit">
@@ -34,11 +35,14 @@ function Navbar() {
                                 cadastrar tema
                             </Typography>
                         </Box>
-                        <Box mx={1} style={{ cursor: "pointer" }}>
-                            <Typography variant="h6" color="inherit">
-                                logout
-                            </Typography>
-                        </Box>
+                        <Link to='/login' className='text-decorator-none'>
+                            <Box mx={1} style={{ cursor: "pointer" }}>
+                                <Typography variant="h6" color="inherit">
+                                    logout
+                                </Typography>
+                            </Box>
+                        </Link>
+                        
                     </Box>
 
                 </Toolbar>

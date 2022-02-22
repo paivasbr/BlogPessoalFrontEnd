@@ -7,6 +7,12 @@
     font-weight: bold !important;
 }
 
+.button2{
+    color: white !important;
+    background-color: #00352c !important;
+    font-weight: bold !important;
+}
+
 .imagem{
     background-image: url(https://imgur.com/sGVkONj.jpg);
     background-repeat: no-repeat;

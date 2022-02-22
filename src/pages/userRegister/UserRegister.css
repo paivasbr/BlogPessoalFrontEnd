@@ -1,0 +1,21 @@
+.imagem2{
+    background-image: url(https://imgur.com/sGVkONj.jpg);
+    background-repeat: no-repeat;
+    width: 100vh;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.button1{
+    margin-right: 45px !important;
+    color: white !important;
+    background-color: #ff7b00 !important;
+    font-weight: bold !important;
+}
+
+.button2{
+    color: white !important;
+    background-color: #00352c !important;
+    font-weight: bold !important;
+}

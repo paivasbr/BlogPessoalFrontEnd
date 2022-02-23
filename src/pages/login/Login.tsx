@@ -11,11 +11,12 @@ function Login() {
     const [token, setToken] = useLocalStorage('token');
     const [userLogin, setUserLogin] = useState<UserLogin>(
         {
-            id:0,
+            id: 0,
             usuario: '',
             senha: '',
             token: ''
         }
+
     )
 
     function updateModel(e: ChangeEvent<HTMLInputElement>){
@@ -43,15 +44,14 @@ function Login() {
             alert('Dados do usuário inconsistentes. Erro ao Logar!!');
         }
     }
-
     return (
         <Grid container direction='row' justifyContent='center' alignItems="center">
-            <Grid alignItems="center" xs={6}>
+            <Grid alignItems="center" item xs={6}>
                 <Box paddingX={20}>
-                    <form>
+                    <form onSubmit={onSubmit}>
                         <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className="text1">Entrar</Typography>
-                        <TextField id='Usuario(a)' label='Usuario(a)' variant='outlined' name='Usuario(a)' margin='normal' fullWidth />
-                        <TextField id='Senha' label='Senha' variant='outlined' name='Senha' margin='normal' type='password' fullWidth />
+                        <TextField value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='Usuário(a)' variant='outlined' name='usuario' margin='normal' fullWidth />
+                        <TextField value={userLogin.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='Senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
                         <Box marginTop={2} textAlign='center'>
                                 <Button type='submit' variant='contained' color='primary' className='button2'>
                                     Logar
@@ -69,7 +69,7 @@ function Login() {
                     </Box>
                 </Box>
             </Grid>
-            <Grid xs={6} className="imagem">
+            <Grid item xs={6} className="imagem">
 
             </Grid>
         </Grid>

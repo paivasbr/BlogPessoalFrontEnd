@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import { Grid, Box, Typography, TextField, Button } from '@material-ui/core';
 import { Link, useHistory } from 'react-router-dom';
 import useLocalStorage from 'react-use-localstorage';
@@ -7,6 +7,42 @@ import UserRegister from '../userRegister/UserRegister';
 import './Login.css';
 
 function Login() {
+    let history = useHistory();
+    const [token, setToken] = useLocalStorage('token');
+    const [userLogin, setUserLogin] = useState<UserLogin>(
+        {
+            id:0,
+            usuario: '',
+            senha: '',
+            token: ''
+        }
+    )
+
+    function updateModel(e: ChangeEvent<HTMLInputElement>){
+
+        setUserLogin({
+            ...userLogin,
+            [e.target.name]: e.target.value
+        })
+    }
+
+        useEffect(()=>{
+            if(token != ''){
+                history.push('/home')
+            }
+        }, [token])
+
+    async function onSubmit(e: ChangeEvent<HTMLFormElement>){
+        e.preventDefault();
+        try{ 
+            const resposta = await api.post(`/usuario/logar`), userLogin)
+            setToken(resposta.data.token)
+
+            alert('Usuário logado com sucesso!');
+        }catch(error){
+            alert('Dados do usuário inconsistentes. Erro ao Logar!!');
+        }
+    }
 
     return (
         <Grid container direction='row' justifyContent='center' alignItems="center">

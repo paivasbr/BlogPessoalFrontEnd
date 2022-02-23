@@ -3,7 +3,7 @@ import { Grid, Box, Typography, TextField, Button } from '@material-ui/core';
 import { Link, useHistory } from 'react-router-dom';
 import useLocalStorage from 'react-use-localstorage';
 import { api } from '../../services/Service';
-import UserLogin from '../../models/UserLogin';
+import UserRegister from '../userRegister/UserRegister';
 import './Login.css';
 
 function Login() {
@@ -16,34 +16,34 @@ function Login() {
             senha: '',
             token: ''
         }
-        )
 
-        function updatedModel(e: ChangeEvent<HTMLInputElement>) {
+    )
 
-            setUserLogin({
-                ...userLogin,
-                [e.target.name]: e.target.value
-            })
-        }
+    function updateModel(e: ChangeEvent<HTMLInputElement>){
+
+        setUserLogin({
+            ...userLogin,
+            [e.target.name]: e.target.value
+        })
+    }
 
         useEffect(()=>{
-            if(token !== ''){
+            if(token != ''){
                 history.push('/home')
             }
         }, [token])
 
-        async function onSubmit(e: ChangeEvent<HTMLFormElement>){
-            e.preventDefault();
-            try{
-                const resposta = await api.post(`/usuarios/logar`, userLogin)
-                setToken(resposta.data.token)
+    async function onSubmit(e: ChangeEvent<HTMLFormElement>){
+        e.preventDefault();
+        try{ 
+            const resposta = await api.post(`/usuario/logar`), userLogin)
+            setToken(resposta.data.token)
 
-                alert('Usuário logado com sucesso!');
-            }catch(error){
-                alert('Dados do usuário inconsistentes. Erro ao logar!!');
-            }
+            alert('Usuário logado com sucesso!');
+        }catch(error){
+            alert('Dados do usuário inconsistentes. Erro ao Logar!!');
         }
-
+    }
     return (
         <Grid container direction='row' justifyContent='center' alignItems="center">
             <Grid alignItems="center" item xs={6}>
@@ -53,11 +53,9 @@ function Login() {
                         <TextField value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='Usuário(a)' variant='outlined' name='usuario' margin='normal' fullWidth />
                         <TextField value={userLogin.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='Senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
                         <Box marginTop={2} textAlign='center'>
-                            
                                 <Button type='submit' variant='contained' color='primary' className='button2'>
                                     Logar
                                 </Button>
-                
                         </Box>
                     </form>
                     <Box display='flex' justifyContent='center' marginTop={2}>

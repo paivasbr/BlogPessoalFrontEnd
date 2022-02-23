@@ -14,8 +14,17 @@
     font-weight: bold !important;
 }
 
-.button2{
+.buttton2{
     color: white !important;
     background-color: #00352c !important;
     font-weight: bold !important;
+}
+
+.button-cancel {
+    margin-right: 20px!important;
+}
+
+.button-submit {
+    text-decoration: none!important;
+    background-color: #727070!important;
 }

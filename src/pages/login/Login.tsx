@@ -1,48 +1,37 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
 import { Grid, Box, Typography, TextField, Button } from '@material-ui/core';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory} from 'react-router-dom';
 import useLocalStorage from 'react-use-localstorage';
-import { api } from '../../services/Service';
 import UserLogin from '../../models/UserLogin';
+import { login } from '../../services/Service';
 import './Login.css';
 
 function Login() {
     let history = useHistory();
     const [token, setToken] = useLocalStorage('token');
-    const [userLogin, setUserLogin] = useState<UserLogin>(
-        {
-            id: 0,
-            usuario: '',
-            senha: '',
-            token: ''
+    const [userLogin, setUserLogin] = useState<UserLogin>({
+        id: 0, usuario: "", senha: "", token: ""
+    })
+    function updatedModel(e: ChangeEvent<HTMLInputElement>) {
+        setUserLogin({
+            ...userLogin,
+            [e.target.name]: e.target.value
+        })
+    }
+    useEffect(() => {
+        if (token !== "") {
+            history.push('/home')
         }
-        )
-
-        function updatedModel(e: ChangeEvent<HTMLInputElement>) {
-
-            setUserLogin({
-                ...userLogin,
-                [e.target.name]: e.target.value
-            })
+    }, [token])
+    async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
+        e.preventDefault();
+        try {
+            await login(`/usuarios/logar`, userLogin, setToken)
+            alert("Usuário logado com sucesso!");
+        } catch (error) {
+            alert("Dados inconsistentes!");
         }
-
-        useEffect(()=>{
-            if(token !== ''){
-                history.push('/home')
-            }
-        }, [token])
-
-        async function onSubmit(e: ChangeEvent<HTMLFormElement>){
-            e.preventDefault();
-            try{
-                const resposta = await api.post(`/usuarios/logar`, userLogin)
-                setToken(resposta.data.token)
-
-                alert('Usuário logado com sucesso!');
-            }catch(error){
-                alert('Dados do usuário inconsistentes. Erro ao logar!!');
-            }
-        }
+    }
 
     return (
         <Grid container direction='row' justifyContent='center' alignItems="center">
@@ -53,11 +42,9 @@ function Login() {
                         <TextField value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='Usuário(a)' variant='outlined' name='usuario' margin='normal' fullWidth />
                         <TextField value={userLogin.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='Senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
                         <Box marginTop={2} textAlign='center'>
-                            
                                 <Button type='submit' variant='contained' color='primary' className='button2'>
                                     Logar
                                 </Button>
-                
                         </Box>
                     </form>
                     <Box display='flex' justifyContent='center' marginTop={2}>

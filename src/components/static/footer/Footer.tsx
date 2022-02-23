@@ -11,10 +11,10 @@ function Footer() {
             <Grid container direction="row" justifyContent="center" alignItems="center">
                 <Grid alignItems="center" item xs={12}>
                     <Box className="box1">
-                        <Box paddingTop={1} display="flex" alignItems="center" justifyContent="center">
+                        <Box paddingTop={1} display="flex"  justifyContent="center">
                             <Typography variant="h5" align="center" gutterBottom className="texto1">Siga-nos nas redes sociais </Typography>
                         </Box>
-                        <Box display="flex" alignItems="center" justifyContent="center">
+                        <Box display="flex" justifyContent="center">
                             <a href="https://www.instagram.com/paivasbr">
                                 <InstagramIcon className="rede1"/>
                             </a>

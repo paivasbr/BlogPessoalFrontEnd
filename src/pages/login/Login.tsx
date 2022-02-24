@@ -2,6 +2,7 @@ import React, { useState, useEffect, ChangeEvent } from 'react';
 import { Grid, Box, Typography, TextField, Button } from '@material-ui/core';
 import { Link, useHistory} from 'react-router-dom';
 import useLocalStorage from 'react-use-localstorage';
+import { api } from '../../services/Service';
 import UserLogin from '../../models/UserLogin';
 import { login } from '../../services/Service';
 import './Login.css';
@@ -23,13 +24,15 @@ function Login() {
             history.push('/home')
         }
     }, [token])
+    
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault();
         try {
-            await login(`/usuarios/logar`, userLogin, setToken)
+            const resposta = await api.post(`/usuarios/logar`, userLogin)
+            setToken(resposta.data.token)
             alert("Usuário logado com sucesso!");
         } catch (error) {
-            alert("Dados inconsistentes!");
+            alert("Dados inconsistentes! Erro ao Logar!!");
         }
     }
     return (
@@ -50,7 +53,7 @@ function Login() {
                         <Box marginRight={1}>
                             <Typography variant='subtitle1' gutterBottom align="center">Não tem uma conta?</Typography>
                         </Box>
-                        <Link to='/userRegister'className='text-decorator-none'>
+                        <Link to='/cadastroUsuario'className='text-decorator-none'>
                             <Typography variant='subtitle1' gutterBottom align="center" className="text2">Cadastre-se</Typography>
                         </Link>
 

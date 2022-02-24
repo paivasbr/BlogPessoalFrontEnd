@@ -3,12 +3,12 @@ import { Grid, Box, Typography, Button, TextField } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import User from '../../models/User';
-import { userRegister } from '../../services/Service'; 
-import './UserRegister.css';
+import { cadastroUsuario } from '../../services/Service';
+import './CadastroUsuario.css';
 
-function UserRegister() {
+function CadastroUsuario() {
     let history = useHistory();
-    const [confirmacaoDeSenha, setconfirmacaoDeSenha] = useState<String>('');
+    const [confirmacaoDeSenha, setconfirmacaoDeSenha] = useState<String>('')
     const [user, setUser] = useState<User>({
 
         id: 0, nome: "", usuario: "", senha: ""
@@ -20,10 +20,11 @@ function UserRegister() {
     })
 
         useEffect(()=>{
-            if(userResult.id !== '0'){
+            if(userResult.id !== 0){
                 history.push('/login')
             }
         }, [userResult])
+        
         function confirmacaoDeSenhaHandle(e: ChangeEvent<HTMLInputElement>) {
             setconfirmacaoDeSenha(e.target.value)
         }
@@ -37,7 +38,7 @@ function UserRegister() {
         async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
             e.preventDefault()
             if (confirmacaoDeSenha ===  user.senha && user.senha.length >= 8) {
-                userRegister(`usuarios/cadastrar`, user, setUserResult)
+                cadastroUsuario(`usuarios/cadastrar`, user, setUserResult)
                 alert("Usuário cadastrado com sucesso!");
             } else {
                 alert("Verifique se os campos foram preenchidos corretamente.");
@@ -78,4 +79,4 @@ function UserRegister() {
     );
 }
 
-export default UserRegister; 
+export default CadastroUsuario; 

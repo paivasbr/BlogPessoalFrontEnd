@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Navbar from './components/static/navbar/Navbar';
 import Footer from './components/static/footer/Footer';
-import UserRegister from './pages/userRegister/UserRegister';
+import CadastroUsuario from './pages/cadastroUsuario/CadastroUsuario';
 import Home from './pages/home/Home';
 import Login from './pages/login/Login';
 import './App.css';
@@ -26,8 +26,8 @@ function App() {
               <Home />
             </Route>
             
-            <Route path='/userRegister'>
-              <UserRegister />
+            <Route path='/cadastroUsuario'>
+              <CadastroUsuario />
             </Route>
           </div>
         </Switch>

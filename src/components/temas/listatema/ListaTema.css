@@ -1,3 +1,12 @@
+.button5{
+    background-color: #ff7b00 !important;
+    font-weight: bold !important;
+}
+
+.button6{
+    background-color: #00352c !important; 
+    font-weight: bold !important;
+}
 .text-decorator-none{
     text-decoration: none;
 }

@@ -5,7 +5,7 @@ import { busca } from '../../../services/Service';
 import Tema from '../../../models/Tema';
 import './ListaTema.css';
 import { useSelector } from 'react-redux';
-import { TokenState } from '../../../store/tokens/TokensReducer';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 
 function ListaTema() {
   const [temas, setTemas] = useState<Tema[]>([])

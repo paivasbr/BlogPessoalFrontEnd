@@ -5,7 +5,7 @@ import UserLogin from '../../models/UserLogin';
 import { login } from '../../services/Service';
 import './Login.css';
 import { useDispatch } from 'react-redux';
-import { addToken } from '../../store/tokens/Actions';
+import { addToken } from '../../store/tokens/actions';
 
 
 function Login() {

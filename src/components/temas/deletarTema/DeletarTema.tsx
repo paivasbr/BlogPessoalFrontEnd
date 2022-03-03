@@ -5,7 +5,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { buscaId, deleteId } from '../../../services/Service';
 import Tema from '../../../models/Tema';
 import { useSelector } from 'react-redux';
-import { TokenState } from '../../../store/tokens/TokensReducer';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 
 
 function DeletarTema() {

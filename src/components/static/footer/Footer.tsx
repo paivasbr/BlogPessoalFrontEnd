@@ -5,7 +5,7 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import { Grid, Box, Typography } from '@material-ui/core';
 import './Footer.css';
 import { useSelector } from 'react-redux';
-import { TokenState } from '../../../store/tokens/TokensReducer';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 
 function Footer() {
 

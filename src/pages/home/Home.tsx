@@ -5,7 +5,7 @@ import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostage
 import { useHistory } from 'react-router-dom';
 import './Home.css';
 import { useSelector } from 'react-redux';
-import { TokenState } from '../../store/tokens/TokensReducer';
+import { TokenState } from '../../store/tokens/tokensReducer';
 
 function Home() {
     let history = useHistory();

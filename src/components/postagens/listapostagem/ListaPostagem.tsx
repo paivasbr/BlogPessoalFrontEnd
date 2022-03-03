@@ -6,7 +6,7 @@ import { Box, Card, CardActions, CardContent, Button, Typography } from '@materi
 import './ListaPostagem.css';
 import { useHistory } from 'react-router-dom'
 import { useSelector } from 'react-redux';
-import { TokenState } from '../../../store/tokens/TokensReducer';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 
 
 function ListaPostagem() {

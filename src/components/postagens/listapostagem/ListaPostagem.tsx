@@ -8,6 +8,7 @@ import { useHistory } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/TokensReducer';
 
+
 function ListaPostagem() {
   const [posts, setPosts] = useState<Postagem[]>([])
   let history = useHistory();

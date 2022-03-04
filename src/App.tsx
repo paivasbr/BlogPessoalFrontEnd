@@ -46,10 +46,10 @@ function App() {
             <ListaPostagens />
           </Route>
 
-          <Route exact path='/formularioPostagem'>
+          <Route exact path='/formularioPostagens'>
             <CadastroPost />
           </Route>
-          <Route exact path='/formularioPostagem/:id'>
+          <Route exact path='/formularioPostagens/:id'>
             <CadastroPost />
           </Route>
           <Route exact path='/formularioTemas'>

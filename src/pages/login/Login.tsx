@@ -1,6 +1,6 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
 import { Grid, Box, Typography, TextField, Button } from '@material-ui/core';
-import { Link, useHistory} from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import UserLogin from '../../models/UserLogin';
 import { login } from '../../services/Service';
 import './Login.css';
@@ -11,7 +11,7 @@ import { addToken } from '../../store/tokens/actions';
 function Login() {
     let history = useHistory();
     const dispatch = useDispatch();
-    const [token, setToken] = useState ('');
+    const [token, setToken] = useState('');
     const [userLogin, setUserLogin] = useState<UserLogin>({
         id: 0, usuario: "", senha: "", token: ""
     })
@@ -27,7 +27,7 @@ function Login() {
             history.push('/home')
         }
     }, [token])
-    
+
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault();
         try {
@@ -38,31 +38,31 @@ function Login() {
         }
     }
     return (
-        <Grid container direction='row' justifyContent='center' alignItems="center">
-            <Grid alignItems="center" item xs={6}>
-                <Box paddingX={20}>
+        <Grid container direction='row'>
+            <Grid className="container">
+                <Box className="card">
                     <form onSubmit={onSubmit} >
-                        <Typography variant='h3' gutterBottom component='h3' align='center' className="text1 words">Entrar</Typography>
+                        <Typography variant='h3' gutterBottom component='h3' className="text1" >Entrar</Typography>
                         <TextField value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='Usuário(a)' variant='outlined' name='usuario' fullWidth />
                         <TextField value={userLogin.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='Senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
                         <Box marginTop={2} textAlign='center'>
-                                <Button type='submit' variant='contained' color='primary' className='button2'>
-                                    Logar
-                                </Button>
+                            <Button type='submit' variant='contained' color='primary' className='button2'>
+                                Logar
+                            </Button>
                         </Box>
                     </form>
                     <Box display='flex' justifyContent='center' marginTop={2}>
                         <Box marginRight={1}>
                             <Typography variant='subtitle1' gutterBottom align="center">Não tem uma conta?</Typography>
                         </Box>
-                        <Link to='/cadastroUsuario'className='text-decorator-none'>
+                        <Link to='/cadastroUsuario' className='text-decorator-none'>
                             <Typography variant='subtitle1' gutterBottom align="center" className="text2">Cadastre-se</Typography>
                         </Link>
 
                     </Box>
                 </Box>
             </Grid>
-            <Grid item xs={6} className="imagem">
+            <Grid item xs={6}>
 
             </Grid>
         </Grid>

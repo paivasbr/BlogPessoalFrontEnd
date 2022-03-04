@@ -29,7 +29,7 @@ function CadastroPost() {
             id: 0,
             descricao: ''
         })
-    const [postagem, setPostagem] = useState<Postagens>({
+    const [postagens, setPostagens] = useState<Postagens>({
         id: 0,
         titulo: '',
         texto: '',
@@ -37,8 +37,8 @@ function CadastroPost() {
     })
 
     useEffect(() => {
-        setPostagem({
-            ...postagem,
+        setPostagens({
+            ...postagens,
             tema: tema
         })
     }, [tema])
@@ -46,7 +46,7 @@ function CadastroPost() {
     useEffect(() => {
         getTemas()
         if (id !== undefined) {
-            findByIdPostagem(id)
+            findByIdPostagens(id)
         }
     }, [id])
 
@@ -58,18 +58,18 @@ function CadastroPost() {
         })
     }
 
-    async function findByIdPostagem(id: string) {
-        await buscaId(`postagens/${id}`, setPostagem, {
+    async function findByIdPostagens(id: string) {
+        await buscaId(`postagens/${id}`, setPostagens, {
             headers: {
                 'Authorization': token
             }
         })
     }
 
-    function updatedPostagem(e: ChangeEvent<HTMLInputElement>) {
+    function updatedPostagens(e: ChangeEvent<HTMLInputElement>) {
 
-        setPostagem({
-            ...postagem,
+        setPostagens({
+            ...postagens,
             [e.target.name]: e.target.value,
             tema: tema
         })
@@ -80,14 +80,14 @@ function CadastroPost() {
         e.preventDefault()
 
         if (id !== undefined) {
-            put(`/postagens`, postagem, setPostagem, {
+            put(`/postagens`, postagens, setPostagens, {
                 headers: {
                     'Authorization': token
                 }
             })
             alert('Postagem atualizada com sucesso');
         } else {
-            post(`/postagens`, postagem, setPostagem, {
+            post(`/postagens`, postagens, setPostagens, {
                 headers: {
                     'Authorization': token
                 }
@@ -106,8 +106,8 @@ function CadastroPost() {
         <Container maxWidth="sm" className="topo">
             <form onSubmit={onSubmit}>
                 <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro postagem</Typography>
-                <TextField value={postagem.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="titulo" label="titulo" variant="outlined" name="titulo" margin="normal" fullWidth />
-                <TextField value={postagem.texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="texto" label="texto" name="texto" variant="outlined" margin="normal" fullWidth />
+                <TextField value={postagens.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagens(e)} id="titulo" label="titulo" variant="outlined" name="titulo" margin="normal" fullWidth />
+                <TextField value={postagens.texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagens(e)} id="texto" label="texto" name="texto" variant="outlined" margin="normal" fullWidth />
 
                 <FormControl >
                     <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>

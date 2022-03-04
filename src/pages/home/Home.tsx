@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Typography, Box, Grid, Button } from '@material-ui/core';
-import TabPostagem from '../../components/postagens/tabpostagem/TabPostagem';
-import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
+import TabPostagens from '../../components/postagens/tabpostagens/TabPostagens';
+import ModalPostagens from '../../components/postagens/modalPostagens/ModalPostagens';
 import { useHistory } from 'react-router-dom';
 import './Home.css';
 import { useSelector } from 'react-redux';
@@ -32,7 +32,7 @@ function Home() {
                     </Box>
                     <Box display="flex" justifyContent="center">
                         <Box marginRight={1}>
-                            <ModalPostagem />
+                            <ModalPostagens />
                         </Box>
                         <Link to="/posts" className="text-decorator-none">
                             <Button variant="outlined" className="botao">Ver Postagens</Button>
@@ -43,7 +43,7 @@ function Home() {
                     <img src="https://imgur.com/Cxprpax.png" alt="" width="685px" height="479px"/>
                 </Grid>
                 <Grid item xs={12} className="postagens">
-                    <TabPostagem />
+                    <TabPostagens />
                 </Grid>
             </Grid>
         </>

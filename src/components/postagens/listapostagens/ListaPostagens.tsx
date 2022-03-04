@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import Postagem from '../../../models/Postagens';
+import React, { useEffect, useState } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 import { busca } from '../../../services/Service'
 import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
-import './ListaPostagem.css';
-import { useHistory } from 'react-router-dom'
-import { useSelector } from 'react-redux';
+import './ListaPostagens.css';
 import { TokenState } from '../../../store/tokens/tokensReducer';
+import Postagens from '../../../models/Postagens';
+import { useSelector } from 'react-redux';
 
 
-function ListaPostagem() {
-  const [posts, setPosts] = useState<Postagem[]>([])
+function ListaPostagens() {
+  const [posts, setPosts] = useState<Postagens[]>([])
   let history = useHistory();
   const token = useSelector<TokenState, TokenState["tokens"]>(
     (state) => state.tokens
@@ -61,14 +60,14 @@ function ListaPostagem() {
               <CardActions>
                 <Box display="flex" justifyContent="center" mb={1.5}>
 
-                  <Link to={`/formularioPostagem/${post.id}`} className="text-decorator-none" >
+                  <Link to={`/formularioPostagens/${post.id}`} className="text-decorator-none" >
                     <Box mx={1}>
                       <Button variant="contained" className="marginLeft button3" size='small' color="primary" >
                         atualizar
                       </Button>
                     </Box>
                   </Link>
-                  <Link to={`/deletarPostagem/${post.id}`} className="text-decorator-none">
+                  <Link to={`/deletarPostagens/${post.id}`} className="text-decorator-none">
                     <Box mx={1}>
                       <Button variant="contained" className="button4" size='small' color="secondary">
                         deletar
@@ -85,4 +84,4 @@ function ListaPostagem() {
   )
 }
 
-export default ListaPostagem;
+export default ListaPostagens;

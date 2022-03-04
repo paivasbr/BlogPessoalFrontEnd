@@ -3,17 +3,17 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/static/navbar/Navbar';
 import Footer from './components/static/footer/Footer';
 import CadastroUsuario from './pages/cadastroUsuario/CadastroUsuario';
-import ListaPostagem from './components/postagens/listapostagem/ListaPostagem';
+import ListaPostagens from './components/postagens/listapostagens/ListaPostagens';
 import Home from './pages/home/Home';
 import Login from './pages/login/Login';
 import CadastroPost from './components/postagens/cadastroPost/CadastroPost';
-import DeletarPostagem from './components/postagens/deletarPostagem/DeletarPostagem';
 import './App.css';
 import { Provider } from 'react-redux';
 import store from './store/Store';
 import DeletarTemas from './components/temas/deletarTemas/DeletarTemas';
 import CadastroTemas from './components/temas/cadastroTemas/CadastroTemas';
 import ListaTemas from './components/temas/listatemas/ListaTemas';
+import DeletarPostagens from './components/postagens/deletarPostagens/DeletarPostagens';
 
 
 
@@ -43,13 +43,13 @@ function App() {
             <ListaTemas />
           </Route>
           <Route path='/posts'>
-            <ListaPostagem />
+            <ListaPostagens />
           </Route>
 
-          <Route exact path='/formularioPostagem'>
+          <Route exact path='/formularioPostagens'>
             <CadastroPost />
           </Route>
-          <Route exact path='/formularioPostagem/:id'>
+          <Route exact path='/formularioPostagens/:id'>
             <CadastroPost />
           </Route>
           <Route exact path='/formularioTemas'>
@@ -58,8 +58,8 @@ function App() {
           <Route exact path='/formularioTemas/:id'>
             <CadastroTemas />
           </Route>
-          <Route path='/deletarPostagem/:id'>
-            <DeletarPostagem />
+          <Route path='/DeletarPostagens/:id'>
+            <DeletarPostagens />
           </Route>
           <Route path='/deletarTemas/:id'>
             <DeletarTemas />

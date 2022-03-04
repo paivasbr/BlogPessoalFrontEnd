@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import {Typography, Button, Box, Card, CardActions, CardContent } from "@material-ui/core"
-import './DeletarPostagem.css';
-import Postagem from '../../../models/Postagens';
+import './DeletarPostagens.css';
 import { buscaId, deleteId } from '../../../services/Service';
+import { TokenState } from '../../../store/tokens/tokensReducer';
+import Postagens from '../../../models/Postagens';
 import { useHistory, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { TokenState } from '../../../store/tokens/tokensReducer';
 
-function DeletarPostagem() {
+
+function DeletarPostagens() {
     let history = useHistory();
     const { id } = useParams<{id: string}>();
     const token = useSelector<TokenState, TokenState["tokens"]>(
       (state) => state.tokens
     );
-    const [post, setPosts] = useState<Postagem>()
+    const [post, setPosts] = useState<Postagens>()
 
     useEffect(() => {
         if (token == "") {
@@ -44,7 +45,7 @@ function DeletarPostagem() {
                 'Authorization': token
                 }
             });
-            alert('Postagem deletado com sucesso');
+            alert('A postagem foi deletada com sucesso');
           }
 
           function nao(){
@@ -85,4 +86,4 @@ function DeletarPostagem() {
     </>
   );
 }
-export default DeletarPostagem;
+export default DeletarPostagens;

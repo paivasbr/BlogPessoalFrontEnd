@@ -2,16 +2,16 @@ import React, { ChangeEvent, useEffect, useState } from 'react'
 import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem, FormControl, FormHelperText } from "@material-ui/core"
 import './CadastroPost.css';
 import { useHistory, useParams } from 'react-router-dom';
-import Tema from '../../../models/Tema';
-import Postagem from '../../../models/Postagem';
+import Temas from '../../../models/Temas';
 import { busca, buscaId, post, put } from '../../../services/Service';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
+import Postagens from '../../../models/Postagens';
 
 function CadastroPost() {
     let history = useHistory();
     const { id } = useParams<{ id: string }>();
-    const [temas, setTemas] = useState<Tema[]>([])
+    const [temas, setTemas] = useState<Temas[]>([])
     const token = useSelector<TokenState, TokenState["tokens"]>(
         (state) => state.tokens
     );
@@ -24,12 +24,12 @@ function CadastroPost() {
         }
     }, [token])
 
-    const [tema, setTema] = useState<Tema>(
+    const [tema, setTema] = useState<Temas>(
         {
             id: 0,
             descricao: ''
         })
-    const [postagem, setPostagem] = useState<Postagem>({
+    const [postagem, setPostagem] = useState<Postagens>({
         id: 0,
         titulo: '',
         texto: '',
@@ -51,7 +51,7 @@ function CadastroPost() {
     }, [id])
 
     async function getTemas() {
-        await busca("/tema", setTemas, {
+        await busca("/temas", setTemas, {
             headers: {
                 'Authorization': token
             }

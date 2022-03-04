@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import { busca } from '../../../services/Service';
-import Tema from '../../../models/Tema';
-import './ListaTema.css';
+import './ListaTemas.css';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
+import Temas from '../../../models/Temas';
 
-function ListaTema() {
-  const [temas, setTemas] = useState<Tema[]>([])
+function ListaTemas() {
+  const [temas, setTemas] = useState<Temas[]>([])
   let history = useHistory();
   const token = useSelector<TokenState, TokenState["tokens"]>(
     (state) => state.tokens
@@ -21,8 +21,8 @@ function ListaTema() {
     }
   }, [token])
 
-  async function getTema() {
-    await busca("/tema", setTemas, {
+  async function getTemas() {
+    await busca("/temas", setTemas, {
       headers: {
         'Authorization': token
       }
@@ -30,34 +30,34 @@ function ListaTema() {
   }
 
   useEffect(() => {
-    getTema()
+    getTemas()
   }, [temas.length])
 
   return (
     <>
     {
-      temas.map(tema =>(
+      temas.map(temas =>(
       <Box m={2} >
         <Card variant="outlined">
           <CardContent>
             <Typography color="textSecondary" gutterBottom>
-              Tema
+              Temas
             </Typography>
             <Typography variant="h5" component="h2">
-              {tema.descricao}
+              {temas.descricao}
             </Typography>
           </CardContent>
           <CardActions>
             <Box display="flex" justifyContent="center" mb={1.5} >
 
-              <Link to={`/formularioTema/${tema.id}`} className="text-decorator-none">
+              <Link to={`/formularioTemas/${temas.id}`} className="text-decorator-none">
                 <Box mx={1}>
                   <Button variant="contained" className="marginLeft button5" size='small' color="primary" >
                     atualizar
                   </Button>
                 </Box>
               </Link>
-              <Link to={`/deletarTema/${tema.id}`} className="text-decorator-none">
+              <Link to={`/deletarTemas/${temas.id}`} className="text-decorator-none">
                 <Box mx={1}>
                   <Button variant="contained" className='button6' size='small' color="secondary">
                     deletar
@@ -75,4 +75,4 @@ function ListaTema() {
 }
 
 
-export default ListaTema;
+export default ListaTemas;

@@ -3,17 +3,17 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/static/navbar/Navbar';
 import Footer from './components/static/footer/Footer';
 import CadastroUsuario from './pages/cadastroUsuario/CadastroUsuario';
-import ListaTema from './components/temas/listatema/ListaTema';
 import ListaPostagem from './components/postagens/listapostagem/ListaPostagem';
 import Home from './pages/home/Home';
 import Login from './pages/login/Login';
 import CadastroPost from './components/postagens/cadastroPost/CadastroPost';
-import CadastroTema from './components/temas/cadastroTema/CadastroTema';
 import DeletarPostagem from './components/postagens/deletarPostagem/DeletarPostagem';
-import DeletarTema from './components/temas/deletarTema/DeletarTema';
 import './App.css';
 import { Provider } from 'react-redux';
 import store from './store/Store';
+import DeletarTemas from './components/temas/deletarTemas/DeletarTemas';
+import CadastroTemas from './components/temas/cadastroTemas/CadastroTemas';
+import ListaTemas from './components/temas/listatemas/ListaTemas';
 
 
 
@@ -23,7 +23,7 @@ function App() {
     <Router>
       <Navbar />
       <Switch>
-        <div style={{ minHeight: '63.5vh' }}>
+        <div style={{ minHeight: "100vh" }}>
           <Route exact path='/'>
             <Login />
           </Route>
@@ -40,7 +40,7 @@ function App() {
             <CadastroUsuario />
           </Route>
           <Route path='/temas'>
-            <ListaTema />
+            <ListaTemas />
           </Route>
           <Route path='/posts'>
             <ListaPostagem />
@@ -52,17 +52,17 @@ function App() {
           <Route exact path='/formularioPostagem/:id'>
             <CadastroPost />
           </Route>
-          <Route exact path='/formularioTema'>
-            <CadastroTema />
+          <Route exact path='/formularioTemas'>
+            <CadastroTemas />
           </Route>
-          <Route exact path='/formularioTema/:id'>
-            <CadastroTema />
+          <Route exact path='/formularioTemas/:id'>
+            <CadastroTemas />
           </Route>
           <Route path='/deletarPostagem/:id'>
             <DeletarPostagem />
           </Route>
-          <Route path='/deletarTema/:id'>
-            <DeletarTema />
+          <Route path='/deletarTemas/:id'>
+            <DeletarTemas />
           </Route>
 
         </div>

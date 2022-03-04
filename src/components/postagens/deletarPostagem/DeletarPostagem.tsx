@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {Typography, Button, Box, Card, CardActions, CardContent } from "@material-ui/core"
 import './DeletarPostagem.css';
-import Postagem from '../../../models/Postagem';
+import Postagem from '../../../models/Postagens';
 import { buscaId, deleteId } from '../../../services/Service';
 import { useHistory, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';

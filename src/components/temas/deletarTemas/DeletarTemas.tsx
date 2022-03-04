@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import {Box, Card, CardActions, CardContent, Button, Typography} from '@material-ui/core';
-import './DeletarTema.css';
+import './DeletarTemas.css';
 import { useHistory, useParams } from 'react-router-dom';
 import { buscaId, deleteId } from '../../../services/Service';
-import Tema from '../../../models/Tema';
+import Temas from '../../../models/Temas';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 
 
-function DeletarTema() {
+function DeletarTemas() {
     let history = useHistory();
     const { id } = useParams<{id: string}>();
     const token = useSelector<TokenState, TokenState["tokens"]>(
       (state) => state.tokens
     );
-    const [tema, setTema] = useState<Tema>()
+    const [temas, setTemas] = useState<Temas>()
 
     useEffect(() => {
         if (token == "") {
@@ -31,7 +31,7 @@ function DeletarTema() {
     }, [id])
 
     async function findById(id: string) {
-        buscaId(`/tema/${id}`, setTema, {
+        buscaId(`/temas/${id}`, setTemas, {
             headers: {
               'Authorization': token
             }
@@ -40,7 +40,7 @@ function DeletarTema() {
 
         function sim() {
             history.push('/temas')
-            deleteId(`/tema/${id}`, {
+            deleteId(`/temas/${id}`, {
                 headers: {
                 'Authorization': token
                 }
@@ -62,7 +62,7 @@ function DeletarTema() {
                 Deseja deletar o Tema:
               </Typography>
               <Typography color="textSecondary">
-                {tema?.descricao}
+                {temas?.descricao}
               </Typography>
             </Box>
           </CardContent>
@@ -85,4 +85,4 @@ function DeletarTema() {
     </>
   );
 }
-export default DeletarTema;
+export default DeletarTemas;

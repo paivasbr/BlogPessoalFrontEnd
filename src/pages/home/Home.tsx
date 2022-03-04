@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
-import {Typography, Box, Grid, Button} from '@material-ui/core';
+import { Typography, Box, Grid, Button } from '@material-ui/core';
 import TabPostagem from '../../components/postagens/tabpostagem/TabPostagem';
 import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
 import { useHistory } from 'react-router-dom';
 import './Home.css';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../store/tokens/tokensReducer';
+import { Link } from 'react-router-dom';
+
 
 function Home() {
     let history = useHistory();
@@ -14,11 +16,11 @@ function Home() {
     );
 
     useEffect(() => {
-        if(token == "") {
+        if (token == "") {
             alert('Você precisa estar logado')
             history.push("/login")
         }
-    },[token])
+    }, [token])
 
     return (
         <>
@@ -32,11 +34,13 @@ function Home() {
                         <Box marginRight={1}>
                             <ModalPostagem />
                         </Box>
-                        <Button variant="outlined" className="botao">Ver Postagens</Button>
+                        <Link to="/posts" className="text-decorator-none">
+                            <Button variant="outlined" className="botao">Ver Postagens</Button>
+                        </Link>
                     </Box>
                 </Grid>
                 <Grid item xs={6} >
-                    <img src="https://imgur.com/kVf7r99.png" alt="" width="685px" height="479px" />
+                    <img src="https://imgur.com/Cxprpax.png" alt="" width="685px" height="479px"/>
                 </Grid>
                 <Grid item xs={12} className="postagens">
                     <TabPostagem />

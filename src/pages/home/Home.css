@@ -2,6 +2,10 @@
     background-color: #00352c;
 }
 
+.text-decorator-none{
+    text-decoration: none !important;
+}
+
 .titulo1{
     color: white !important;
     font-weight: bold !important;

@@ -1,5 +1,6 @@
 .text1{
     font-weight: bold !important;
+    color: #00352c !important;
 }
 
 .text2{
@@ -25,3 +26,8 @@
 .text-decorator-none{
     text-decoration: none;
 }
+
+.classes.margin{
+    border: #00352c !important;
+}
+

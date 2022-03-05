@@ -13,6 +13,8 @@ import store from './store/Store';
 import DeletarTemas from './components/temas/deletarTemas/DeletarTemas';
 import CadastroTemas from './components/temas/cadastroTemas/CadastroTemas';
 import ListaTemas from './components/temas/listatemas/ListaTemas';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import DeletarPostagens from './components/postagens/deletarPostagens/DeletarPostagens';
 
 
@@ -20,6 +22,7 @@ import DeletarPostagens from './components/postagens/deletarPostagens/DeletarPos
 function App() {
   return (
     <Provider store={store}>
+      <ToastContainer/>
     <Router>
       <Navbar />
       <Switch>

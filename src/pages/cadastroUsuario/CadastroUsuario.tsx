@@ -10,7 +10,7 @@ import './CadastroUsuario.css';
 function CadastroUsuario() {
     let history = useHistory();
     const [confirmacaoDeSenha, setconfirmacaoDeSenha] = useState<String>('')
-    const [user, setUser] = useState<User>({
+    const [user, setUser] =  useState<User>({
 
         id: 0, nome: "", usuario: "", senha: ""
     })
@@ -37,10 +37,10 @@ function CadastroUsuario() {
         })
     }
 
-    async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
+    async function onSubmit(e: ChangeEvent<HTMLFormElement> ) {
         e.preventDefault()
         if (confirmacaoDeSenha === user.senha && user.senha.length >= 8) {
-            cadastroUsuario(`usuarios/cadastrar`, user, setUserResult)
+            cadastroUsuario(`usuarios/cadastrar`, user, setUserResult )
             toast.success('Usuário(a) cadastrado(a) com sucesso!', {
                 position: "top-right",
                 autoClose: 2000,

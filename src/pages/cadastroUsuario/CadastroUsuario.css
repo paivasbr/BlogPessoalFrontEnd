@@ -4,14 +4,6 @@
     font-family: 'Roboto';
 }
 
-body_cadastro{
-    background-image: url(https://imgur.com/sGVkONj.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-
-}
-
 .container_cadastro {
     display: flex;
     justify-content: center;
@@ -58,4 +50,8 @@ body_cadastro{
 .button-submit {
     text-decoration: none!important;
     background-color: #00352c!important;
+}
+
+.field {
+	label: #00352c!important;
 }

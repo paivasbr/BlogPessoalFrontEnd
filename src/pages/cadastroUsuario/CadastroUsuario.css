@@ -9,30 +9,34 @@ body_cadastro{
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+
 }
 
 .container_cadastro {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: 100px;
+    font-size: 12px;
+    margin-top: 50px;
+    border-radius: 4px;
+    padding: 26px;
 }
 
 .card_cadastro{
     background-color: #ffffff80;
-    padding: 20px;
+    padding: 30px;
     border-radius: 6%;
     box-shadow: 3px 3px 1px 0px #00000060;
-
+    position: absolute;
+    width: 420px;
+   
 }
 
 .texto_cadastro{
-    text-align: center;
-    margin-bottom: 20px;
+    text-align: center !important;
     font-weight: bold !important;
     color: #00352c !important;
 }
-
 
 .button1{
     margin-right: 45px !important;
@@ -48,7 +52,7 @@ body_cadastro{
 }
 
 .button-cancel {
-    margin-right: 20px!important;
+    margin-right: 60px!important;
 }
 
 .button-submit {

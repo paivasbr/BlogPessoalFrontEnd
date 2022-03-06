@@ -71,7 +71,7 @@ function CadastroUsuario() {
             <Grid className='container_cadastro'>
                 <Box className='card_cadastro'>
                     <form onSubmit={onSubmit}>
-                        <Typography variant='h3' gutterBottom component='h3' className='texto_cadastro'>Cadastrar</Typography>
+                        <Typography variant='h3' component='h3' className='texto_cadastro'>Cadastrar</Typography>
                         <TextField value={user.nome}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='nome' label='Nome' variant='outlined' name='nome' margin='normal' fullWidth />
                         <TextField value={user.usuario}
@@ -93,7 +93,7 @@ function CadastroUsuario() {
                     </form>
                 </Box>
             </Grid>
-
+        
         </Grid>
     );
 }

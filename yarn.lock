@@ -1655,6 +1655,39 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@os-design-mobile/button@^1.0.27":
+  version "1.0.27"
+  resolved "https://registry.yarnpkg.com/@os-design-mobile/button/-/button-1.0.27.tgz#37a7c4f0237d151789344dfb693dfa3ac2a59fcd"
+  integrity sha512-4yljAPutJWYVZCVV8N7M4g9xfwZZ1uYrra6QBn78Nyui1T+f9rrlHhngSKbx0vZP/cYKD46XAXFvKg8Pw5ntkQ==
+  dependencies:
+    "@os-design-mobile/icons" "^1.0.26"
+    "@os-design-mobile/theming" "^1.0.18"
+    "@os-design/omit-emotion-props" "^1.0.2"
+
+"@os-design-mobile/icons@^1.0.26":
+  version "1.0.26"
+  resolved "https://registry.yarnpkg.com/@os-design-mobile/icons/-/icons-1.0.26.tgz#5e117a53d2c31a155c94e2ae1f85d1847e5ed03e"
+  integrity sha512-xi202aRhddRLd5JWc2aHXGxPiaTkH4gxo9LHkzgFG/hgBBi30GFTg+S5Uhjv9NekDG2gVV7RKfa3+W9A84+kgQ==
+  dependencies:
+    "@os-design-mobile/theming" "^1.0.18"
+
+"@os-design-mobile/theming@^1.0.18":
+  version "1.0.18"
+  resolved "https://registry.yarnpkg.com/@os-design-mobile/theming/-/theming-1.0.18.tgz#e8b716230cb911b1312a082a1340c112fd7db532"
+  integrity sha512-wJJVyYWaQpyqR9QBN8rJpZU8ntQZgX4JZ0cdHc0kK3u06xlShfJMIHqLNdTeHGCGAN70KrwAfkIdCxTxha2Chg==
+  dependencies:
+    "@os-design/theming-tools" "^1.0.3"
+
+"@os-design/omit-emotion-props@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@os-design/omit-emotion-props/-/omit-emotion-props-1.0.2.tgz#32b446e0ca154039700f74439ddab8bc3d63f81b"
+  integrity sha512-kXr1c0auq6CNeDWLeFgAQOVNMqXXjd3HPmJWKjDeAvI6kJYP/rZK2/eHeRy2ADHFB9ooVWrjjNHttmPCILZpBA==
+
+"@os-design/theming-tools@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@os-design/theming-tools/-/theming-tools-1.0.3.tgz#8c3d4e948e3e72136972d235a7de4c630e650c0d"
+  integrity sha512-MOzx9+20F0PlIJwAZwnuqStb1mimIrm9zxO7NKgveWMi6/ZoljAsloDQgjAVh+YeuEboJZ84TaqJUhFeNmCqsg==
+
 "@pmmmwh/react-refresh-webpack-plugin@^0.5.3":
   version "0.5.4"
   resolved "https://registry.npmjs.org/@pmmmwh/react-refresh-webpack-plugin/-/react-refresh-webpack-plugin-0.5.4.tgz"

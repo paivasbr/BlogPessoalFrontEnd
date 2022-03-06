@@ -1,10 +1,9 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography, Box, } from '@material-ui/core';
+import { Box, } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import './Navbar.css'
 import { useDispatch, useSelector } from 'react-redux';
-
 import { addToken } from '../../../store/tokens/actions';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify';
@@ -36,55 +35,39 @@ function Navbar() {
     var navbarComponent;
 
     if (token != "") {
-        navbarComponent = <AppBar position="relative" className="navbar">
-            <Toolbar variant="dense">
-                <Box className='cursor' >
-                    <Typography variant="h5" color="inherit">
-                        Lendas Amazônicas
-                    </Typography>
-                </Box>
-
-                <Box display="flex" justifyContent="start">
-                    <Link to='/home' className='text-decorator-none'>
-                        <Box mx={1} className='cursor'>
-                            <Typography variant="h6" color="inherit">
-                                Home
-                            </Typography>
+        navbarComponent = <header id="header">
+            <a id='logo' href="">Logo</a>
+            <nav id="nav">
+                <button id="btn-mobile">Lendas Amazônicas</button>
+                <ul id="menu">
+                    <Link to='/home'>
+                        <Box mx={1}>
+                            <li><a href="/">Home</a></li>
                         </Box>
                     </Link>
-                    <Link to='/posts' className='text-decorator-none'>
-                        <Box mx={1} className='cursor'>
-                            <Typography variant="h6" color="inherit">
-                                Postagens
-                            </Typography>
+                    <Link to='/posts'>
+                        <Box mx={1}>
+                            <li><a href="/">Postagens</a></li>
                         </Box>
                     </Link>
-                    <Link to='/temas' className='text-decorator-none'>
-                        <Box mx={1} className='cursor'>
-                            <Typography variant="h6" color="inherit">
-                                Temas
-                            </Typography>
+                    <Link to='/temas'>
+                        <Box mx={1} >
+                            <li><a href="/">Temas</a></li>
                         </Box>
                     </Link>
-                    <Link to='/formularioTemas' className='text-decorator-none'>
-                        <Box mx={1} className='cursor'>
-                            <Typography variant="h6" color="inherit">
-                                Cadastrar Tema
-                            </Typography>
+                    <Link to='/formularioTemas'>
+                        <Box mx={1} >
+                            <li><a href="/">Cadastrar Tema</a></li>
                         </Box>
                     </Link>
-
-                    <Box mx={1} className='cursor text-decorator-none' onClick={goLogout}>
-                        <Typography variant="h6" color="inherit">
-                            Logout
-                        </Typography>
-                    </Box>
-
-
-                </Box>
-
-            </Toolbar>
-        </AppBar>
+                    <Link to='/login'>
+                        <Box mx={1}  onClick={goLogout}>
+                            <li><a href="/">Logout</a></li>
+                        </Box>
+                    </Link>
+                </ul>
+            </nav>
+        </header>
     }
     return (
         <>

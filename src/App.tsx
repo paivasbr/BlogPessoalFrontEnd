@@ -18,7 +18,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import DeletarPostagens from './components/postagens/deletarPostagens/DeletarPostagens';
 
 
-
 function App() {
   return (
     <Provider store={store}>
